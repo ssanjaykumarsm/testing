@@ -3,598 +3,839 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sanjay Kumar SM - Game Developer specializing in Unreal Engine 5/6, C++, AI systems, and immersive 3D game worlds. Explore my portfolio, projects, and skills." />
-  <meta property="og:title" content="Sanjay Kumar SM | Game Developer" />
-  <meta property="og:description" content="Entry-level Unreal Engine Developer with expertise in C++, Blueprints, AI mechanics, and level design." />
-  <title>Sanjay Kumar SM | Game Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>IMRAN | UE5 Game Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f5d97a;
+      --dark-gold: #8a6b12;
+      --black: #050505;
+      --soft-black: #101010;
+      --card: rgba(20, 20, 20, 0.85);
+      --white: #f5f5f5;
+      --gray: #999;
+      --border: rgba(212, 175, 55, 0.2);
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background-image:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(255, 100, 0, 0.08), transparent 20%);
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: black;
+    }
+
+    /* Scroll Bar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0d0d0d;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--gold), #ff7300);
+      border-radius: 10px;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      left: 0;
+      bottom: -6px;
+      transition: 0.4s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: var(--gold-light);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9)),
+        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      animation: zoomBg 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes zoomBg {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.08);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 40px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 1;
+      letter-spacing: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      animation: fadeUp 1.5s ease;
+      text-shadow: 0 0 30px rgba(212,175,55,0.2);
+    }
+
+    .hero h2 {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #d8d8d8;
+      letter-spacing: 4px;
+      animation: fadeUp 2s ease;
+    }
+
+    .hero p {
+      margin: 30px auto;
+      max-width: 700px;
+      color: #bdbdbd;
+      line-height: 1.9;
+      font-size: 1rem;
+      animation: fadeUp 2.4s ease;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.4s ease;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #ff8400);
+      color: black;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .scroll-text {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      animation: float 2s infinite;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(10px);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 3rem;
+      margin-bottom: 15px;
+      letter-spacing: 4px;
+    }
+
+    .section-title p {
+      color: #a1a1a1;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 120px 8%;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-box::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(212,175,55,0.2), transparent 70%);
+      top: -80px;
+      right: -80px;
+    }
+
+    .about-box:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212,175,55,0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .about-box h3 {
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .about-box p {
+      color: #c5c5c5;
+      line-height: 1.9;
+    }
+
+    /* PROJECTS */
+    .projects {
+      padding: 120px 8%;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: 0.5s ease;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .project-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.01);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+      border-color: rgba(212,175,55,0.5);
+    }
+
+    .project-image {
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.6s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .project-content {
+      padding: 30px;
+    }
+
+    .project-content h3 {
+      color: var(--gold);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .project-content p {
+      color: #bdbdbd;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-stack span {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+    }
+
+    /* SKILLS */
+    .skills {
+      padding: 120px 8%;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .skill-box {
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: 0.4s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212,175,55,0.5);
+    }
+
+    .skill-box h3 {
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .skill-box p {
+      color: #b5b5b5;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 120px 8%;
+    }
+
+    .contact-card {
+      max-width: 850px;
+      margin: auto;
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(212,175,55,0.18), transparent 70%);
+      top: -150px;
+      left: -100px;
+    }
+
+    .contact-card h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-card p {
+      color: #c8c8c8;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 40px;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s ease;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .contact-links a:hover {
+      color: black;
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #8a8a8a;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      nav {
+        padding: 18px 5%;
+      }
+
+      nav ul {
+        gap: 18px;
+      }
+
+      .hero {
+        padding: 0 5%;
+      }
+
+      .hero h2 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+      }
+
+      .about,
+      .projects,
+      .skills,
+      .contact {
+        padding: 90px 5%;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+
+      .contact-card {
+        padding: 40px 25px;
+      }
+
+      .contact-card h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav id="navbar">
-    <div class="nav-logo">
-      <span class="logo-bracket">&lt;</span>SK<span class="logo-bracket">/&gt;</span>
-    </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">IMRAN</div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#media">Media</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="nav-right">
-      <a href="file:///C:/Users/ssanj/Downloads/sanjay%20unreal%20resume.pdf.pdf" class="btn-resume" target="_blank" id="resume-btn">
-        <span>📄</span> Resume
-      </a>
-      <div class="nav-avatar-wrap">
-        <img src="images/sanjay_profile.jpg" alt="Sanjay Kumar SM" class="nav-avatar" id="nav-avatar" />
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-particles" id="particles"></div>
-    <div class="hero-overlay"></div>
+  <!-- HERO -->
+  <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">🎮 Available for Opportunities</div>
-      <h1 class="hero-title">
-        <span class="hero-name">Sanjay Kumar SM</span>
-        <span class="hero-role">Game Developer</span>
-        <span class="hero-sub">Unreal Engine 5/6 · C++ · AI Systems</span>
-      </h1>
-      <p class="hero-desc">
-        Entry-level Unreal Engine Developer with 1 year of hands-on experience building gameplay systems,
-        3D environments, AI mechanics, and immersive game worlds. Passionate game creator &amp; YouTube streamer.
+
+      <div class="tag">UNREAL ENGINE GAME DEVELOPER</div>
+
+      <h1>IMRAN</h1>
+
+      <h2>CINEMATIC STORYTELLER • GAME DESIGNER • UE5 CREATOR</h2>
+
+      <p>
+        I create immersive gameplay experiences using Unreal Engine 5.
+        From dark cinematic environments to intense action mechanics,
+        I focus on building games that feel emotional, powerful, and unforgettable.
       </p>
+
       <div class="hero-buttons">
-        <a href="#projects" class="btn-primary" id="view-projects-btn"><span>🚀</span> View Projects</a>
-        <a href="#contact" class="btn-secondary" id="hire-me-btn"><span>💼</span> Hire Me</a>
-        <a href="file:///C:/Users/ssanj/Downloads/sanjay%20unreal%20resume.pdf.pdf" class="btn-outline" target="_blank" id="download-resume-btn"><span>📄</span> Resume</a>
-      </div>
-      <div class="hero-socials">
-        <a href="https://www.linkedin.com/in/sanjay-kumar070/" target="_blank" class="social-link" id="linkedin-hero" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@EdGaRGAMING-007" target="_blank" class="social-link" id="youtube-hero" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/_____sa_nj_ay_____/" target="_blank" class="social-link" id="instagram-hero" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
+        <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
+        <a href="#contact" class="btn btn-outline">CONTACT ME</a>
       </div>
     </div>
-    <!-- Hero Profile Image -->
-    <div class="hero-image-wrap">
-      <div class="hero-glow-ring"></div>
-      <div class="hero-avatar-border">
-        <img src="images/sanjay_profile.jpg" alt="Sanjay Kumar SM - Game Developer" class="hero-avatar" id="hero-avatar" />
+
+    <div class="scroll-text">SCROLL TO EXPLORE</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <h2>ABOUT ME</h2>
+      <p>
+        Passionate about creating cinematic experiences, gameplay systems,
+        and emotional storytelling through Unreal Engine 5.
+      </p>
+    </div>
+
+    <div class="about-container">
+
+      <div class="about-box">
+        <h3>Game Developer</h3>
+        <p>
+          Specialized in Unreal Engine 5 development with focus on action gameplay,
+          cinematic storytelling, blueprint systems, AI mechanics, and immersive environments.
+        </p>
       </div>
-      <div class="hero-float-tags">
-        <div class="float-tag tag-ue5">UE5/6</div>
-        <div class="float-tag tag-cpp">C++</div>
-        <div class="float-tag tag-ai">AI Dev</div>
-        <div class="float-tag tag-yt">🎮 Streamer</div>
+
+      <div class="about-box">
+        <h3>Creative Storytelling</h3>
+        <p>
+          I believe every game should tell a story. My goal is to create worlds,
+          emotions, and experiences players remember long after they finish the game.
+        </p>
       </div>
+
+      <div class="about-box">
+        <h3>Leadership & Vision</h3>
+        <p>
+          Founder of Miracle Football Academy and a creator who combines leadership,
+          creativity, and discipline into both sports and game development.
+        </p>
+      </div>
+
     </div>
   </section>
 
-  <!-- ===== SKILLS SECTION ===== -->
-  <section id="skills">
-    <div class="section-header">
-      <span class="section-tag">// TECHNICAL ARSENAL</span>
-      <h2>Skills &amp; Expertise</h2>
-      <p>Technologies and tools I use to craft immersive game experiences</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card" id="skill-cpp">
-        <div class="skill-icon">⚙️</div>
-        <h3>C++ Programming</h3>
-        <p>Object-Oriented Programming, game logic, performance-critical systems</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div>
-        <span class="skill-pct">Advanced</span>
-      </div>
-      <div class="skill-card" id="skill-ue">
-        <div class="skill-icon">🎮</div>
-        <h3>Unreal Engine 5/6</h3>
-        <p>Blueprints, Gameplay Frameworks, Actor Components, Game Instances</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div>
-        <span class="skill-pct">Advanced</span>
-      </div>
-      <div class="skill-card" id="skill-ai">
-        <div class="skill-icon">🤖</div>
-        <h3>Enemy AI Systems</h3>
-        <p>Detection, chasing, attacking behaviors, Behavior Trees, Blackboards</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div>
-        <span class="skill-pct">Proficient</span>
-      </div>
-      <div class="skill-card" id="skill-ui">
-        <div class="skill-icon">🖥️</div>
-        <h3>UI Development</h3>
-        <p>Health bars, HUD systems, game menus using UMG Widget Blueprints</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:78%"></div></div>
-        <span class="skill-pct">Proficient</span>
-      </div>
-      <div class="skill-card" id="skill-lumen">
-        <div class="skill-icon">💡</div>
-        <h3>Graphics &amp; Lighting</h3>
-        <p>Lumen, Nanite, Niagara VFX, Materials, Post Processing Effects</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:82%"></div></div>
-        <span class="skill-pct">Advanced</span>
-      </div>
-      <div class="skill-card" id="skill-level">
-        <div class="skill-icon">🗺️</div>
-        <h3>Level Design</h3>
-        <p>3D environment design, collision, atmospheric world-building</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div>
-        <span class="skill-pct">Advanced</span>
-      </div>
-      <div class="skill-card" id="skill-blueprint">
-        <div class="skill-icon">📋</div>
-        <h3>Blueprint Scripting</h3>
-        <p>Visual scripting, gameplay mechanics, event-driven systems</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:88%"></div></div>
-        <span class="skill-pct">Expert</span>
-      </div>
-      <div class="skill-card" id="skill-opt">
-        <div class="skill-icon">⚡</div>
-        <h3>Optimization</h3>
-        <p>Asset optimization, performance profiling, debugging &amp; testing</p>
-        <div class="skill-bar"><div class="skill-fill" style="--pct:72%"></div></div>
-        <span class="skill-pct">Proficient</span>
-      </div>
-    </div>
-    <div class="tools-row">
-      <span class="tool-badge">Unreal Engine 5</span>
-      <span class="tool-badge">Unreal Engine 6</span>
-      <span class="tool-badge">C++</span>
-      <span class="tool-badge">Blueprints</span>
-      <span class="tool-badge">Lumen</span>
-      <span class="tool-badge">Nanite</span>
-      <span class="tool-badge">Niagara VFX</span>
-      <span class="tool-badge">Behavior Trees</span>
-      <span class="tool-badge">UMG / HUD</span>
-      <span class="tool-badge">Level Design</span>
-      <span class="tool-badge">OOP</span>
-    </div>
-  </section>
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
 
-  <!-- ===== PROJECTS SECTION ===== -->
-  <section id="projects">
-    <div class="section-header">
-      <span class="section-tag">// BUILT WITH PASSION</span>
-      <h2>Projects</h2>
-      <p>Real games and environments I've crafted — actual screenshots below</p>
+    <div class="section-title">
+      <h2>FEATURED PROJECTS</h2>
+      <p>
+        A showcase of cinematic worlds, gameplay systems, and immersive experiences.
+      </p>
     </div>
+
     <div class="projects-grid">
 
-      <!-- Project 1: Third-Person Shooter — with REAL game screenshots slideshow -->
-      <div class="project-card featured" id="proj-tps">
-        <div class="project-badge">🔥 Featured</div>
-        <div class="project-img-wrap screenshot-gallery" id="gallery-tps">
-          <img src="images/game1.jpg" class="screenshot-slide active" alt="TPS Game Screenshot 1 - Player in environment" />
-          <img src="images/game2.jpg" class="screenshot-slide" alt="TPS Game Screenshot 2 - AI Enemies" />
-          <img src="images/game3.jpg" class="screenshot-slide" alt="TPS Game Screenshot 3 - Level overview" />
-          <img src="images/game4.jpg" class="screenshot-slide" alt="TPS Game Screenshot 4 - Aerial view" />
-          <img src="images/game5.jpg" class="screenshot-slide" alt="TPS Game Screenshot 5 - Environment detail" />
-          <div class="slide-dots">
-            <div class="slide-dot active" data-idx="0"></div>
-            <div class="slide-dot" data-idx="1"></div>
-            <div class="slide-dot" data-idx="2"></div>
-            <div class="slide-dot" data-idx="3"></div>
-            <div class="slide-dot" data-idx="4"></div>
-          </div>
-          <div class="slide-counter">1 / 5</div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="ChatGPT Image May 30, 2026, 10_22_31 PM.png">
         </div>
+
         <div class="project-content">
-          <span class="project-engine">Unreal Engine 5 · Malger Entertainments Internship</span>
-          <h3>Third-Person Shooter Game</h3>
-          <p>A complete third-person shooter built during my internship at Malger Entertainments. Features fully functional AI enemies, dynamic HUD, fluid player movement and shooting mechanics — all screenshots are from the actual game.</p>
-          <ul class="project-features">
-            <li>✅ Enemy AI — detection, chasing &amp; attack behaviors</li>
-            <li>✅ Full shooting mechanics &amp; player controls</li>
-            <li>✅ HUD: Health bar, ammo counter, game menus</li>
-            <li>✅ Animation system integration</li>
-            <li>✅ Collision &amp; physics systems</li>
-            <li>✅ Performance-optimized gameplay loop</li>
-          </ul>
-          <div class="project-tags">
-            <span>C++</span><span>Blueprints</span><span>AI</span><span>UMG</span><span>UE5</span>
+          <div class="tag">ACTION / PUZZLE</div>
+          <h3>MAZE RUNNER</h3>
+
+          <p>
+            A high-intensity survival puzzle game focused on dynamic environments,
+            procedural pathways, and immersive tension mechanics.
+          </p>
+
+          <div class="tech-stack">
+            <span>UE5</span>
+            <span>Blueprints</span>
+            <span>AI Logic</span>
+            <span>Puzzle Design</span>
           </div>
-          <div class="project-period">📅 Jan 2026 – Apr 2026 · Malger Entertainments</div>
         </div>
       </div>
 
-      <!-- Project 2: Environment Design — real screenshots -->
-      <div class="project-card" id="proj-env">
-        <div class="project-img-wrap screenshot-gallery" id="gallery-env">
-          <img src="images/game3.jpg" class="screenshot-slide active" alt="Environment Design - Wide level view" />
-          <img src="images/game5.jpg" class="screenshot-slide" alt="Environment Design - Building detail" />
-          <img src="images/game4.jpg" class="screenshot-slide" alt="Environment Design - Overhead view" />
-          <div class="slide-dots">
-            <div class="slide-dot active" data-idx="0"></div>
-            <div class="slide-dot" data-idx="1"></div>
-            <div class="slide-dot" data-idx="2"></div>
-          </div>
-          <div class="slide-counter">1 / 3</div>
+      <div class="project-card">
+        <div class="project-image">
+          <img src="ChatGPT Image May 30, 2026, 09_44_34 PM.png">
         </div>
+
         <div class="project-content">
-          <span class="project-engine">Unreal Engine 5</span>
-          <h3>Environment &amp; Level Design</h3>
-          <p>Designed detailed, atmospheric 3D environments leveraging the full power of UE5's rendering pipeline for cinematic realism.</p>
-          <ul class="project-features">
-            <li>✅ Lumen global illumination &amp; reflections</li>
-            <li>✅ Nanite virtualized geometry</li>
-            <li>✅ Niagara particle &amp; VFX systems</li>
-            <li>✅ Advanced material creation</li>
-            <li>✅ Post-processing for cinematic feel</li>
-          </ul>
-          <div class="project-tags">
-            <span>Lumen</span><span>Nanite</span><span>Niagara</span><span>Materials</span>
+          <div class="tag">THIRD PERSON SHOOTER</div>
+          <h3>RED DOCK</h3>
+
+          <p>
+            A cinematic rescue mission set inside a dangerous enemy-controlled port.
+            The player fights through intense combat zones to rescue a hostage and escape.
+          </p>
+
+          <div class="tech-stack">
+            <span>Combat System</span>
+            <span>Animation Blend</span>
+            <span>Cinematics</span>
+            <span>Level Design</span>
           </div>
         </div>
       </div>
 
-      <!-- Future Project: Cinematic Animation -->
-      <div class="project-card future-card" id="proj-future">
-        <div class="future-badge"><span class="pulse-dot"></span> In Progress</div>
-        <div class="project-img-wrap">
-          <div class="project-img-placeholder future-bg">
-            <div class="future-icon">🎬</div>
-          </div>
+      <div class="project-card">
+        <div class="project-image">
+          <<img src="ChatGPT Image May 30, 2026, 10_28_56 PM.png">>
         </div>
+
         <div class="project-content">
-          <span class="project-engine">Unreal Engine 5/6 · Personal Project</span>
-          <h3>Cinematic Animation Project</h3>
-          <p>Currently working on an ambitious cinematic animation project — a self-driven creative endeavor pushing the limits of real-time rendering and storytelling through Unreal Engine.</p>
-          <ul class="project-features">
-            <li>🔄 Cinematic camera work &amp; sequencer</li>
-            <li>🔄 Advanced character animations</li>
-            <li>🔄 Real-time ray tracing &amp; lighting</li>
-            <li>🔄 Story-driven environment design</li>
-          </ul>
-          <div class="project-tags future-tags">
-            <span>Sequencer</span><span>Cinematics</span><span>UE5/6</span><span>Coming Soon</span>
+          <div class="tag">DARK CINEMATIC WORLD</div>
+          <h3>THE LAVA LAND</h3>
+
+          <p>
+            A narrative-driven volcanic world where environmental storytelling,
+            lighting, and destruction create the feeling of a fallen civilization.
+          </p>
+
+          <div class="tech-stack">
+            <span>Environment Art</span>
+            <span>Lighting</span>
+            <span>World Building</span>
+            <span>Storytelling</span>
           </div>
-          <div class="future-note">🚀 Update coming soon — Stay tuned!</div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ===== EXPERIENCE SECTION ===== -->
-  <section id="experience">
-    <div class="section-header">
-      <span class="section-tag">// MY JOURNEY</span>
-      <h2>Experience &amp; Education</h2>
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+
+    <div class="section-title">
+      <h2>SKILLS</h2>
+      <p>
+        Technical and creative abilities used to build immersive gameplay experiences.
+      </p>
     </div>
-    <div class="timeline">
 
-      <div class="timeline-item" id="exp-malger-intern">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-period">Jan 2026 – Apr 2026</div>
-          <h3>Game Development Intern</h3>
-          <h4>Malger Entertainments · Ernakulam, Kerala</h4>
-          <ul>
-            <li>Developed gameplay systems using Blueprints and C++</li>
-            <li>Created interactive environments and level designs</li>
-            <li>Worked on real-time Unreal Engine-based projects</li>
-            <li>Optimized assets for performance</li>
-            <li>Collaborated with the team throughout development</li>
-          </ul>
-        </div>
+    <div class="skills-grid">
+
+      <div class="skill-box">
+        <h3>Unreal Engine 5</h3>
+        <p>Gameplay systems, environment design, blueprints, and optimization.</p>
       </div>
 
-      <div class="timeline-item" id="exp-malger-edu">
-        <div class="timeline-dot edu"></div>
-        <div class="timeline-content">
-          <div class="timeline-period">Aug 2025</div>
-          <h3>Game Development (Unreal Engine)</h3>
-          <h4>Malger Entertainments · Ernakulam, Kerala</h4>
-          <p>Specialized program in game development with Unreal Engine, focusing on real-time 3D, C++, and Blueprints scripting.</p>
-        </div>
+      <div class="skill-box">
+        <h3>Blueprint Scripting</h3>
+        <p>Creating responsive mechanics, interactions, and gameplay logic.</p>
       </div>
 
-      <div class="timeline-item" id="exp-nios">
-        <div class="timeline-dot edu"></div>
-        <div class="timeline-content">
-          <div class="timeline-period">Jul 2018</div>
-          <h3>Senior Secondary – Commerce</h3>
-          <h4>NIOS · Ernakulam, Kerala</h4>
-        </div>
+      <div class="skill-box">
+        <h3>Cinematic Design</h3>
+        <p>Story-focused scenes using camera work, lighting, and atmosphere.</p>
       </div>
 
-      <div class="timeline-item" id="exp-gaming">
-        <div class="timeline-dot game"></div>
-        <div class="timeline-content">
-          <div class="timeline-period">7+ Years</div>
-          <h3>Competitive Gamer &amp; YouTube Streamer</h3>
-          <h4>@EdGaRGAMING-007</h4>
-          <p>7+ years of continuous gaming experience with deep understanding of gameplay mechanics, player psychology, and game design. Active YouTube game streamer building a community around gaming content.</p>
-        </div>
+      <div class="skill-box">
+        <h3>Level Design</h3>
+        <p>Designing engaging worlds with flow, tension, and exploration.</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Game Storytelling</h3>
+        <p>Building emotional narratives and immersive player experiences.</p>
+      </div>
+
+      <div class="skill-box">
+        <h3>Leadership</h3>
+        <p>Managing teams, academy operations, and creative project execution.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- ===== SERVICES SECTION ===== -->
-  <section id="services">
-    <div class="section-header">
-      <span class="section-tag">// WHAT I OFFER</span>
-      <h2>Services</h2>
-      <p>What I can build for you</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card" id="srv-gameplay">
-        <div class="service-icon">⚔️</div>
-        <h3>Gameplay Systems Development</h3>
-        <p>From character controllers to complex shooting mechanics, inventory systems, and game loops — all built in C++ and Blueprints.</p>
-      </div>
-      <div class="service-card" id="srv-ai">
-        <div class="service-icon">🤖</div>
-        <h3>AI &amp; Enemy Behavior</h3>
-        <p>Intelligent enemy AI with detection, patrolling, chasing, and attacking. Behavior Trees, Blackboards, and custom AI controllers.</p>
-      </div>
-      <div class="service-card" id="srv-level">
-        <div class="service-icon">🌍</div>
-        <h3>Level &amp; Environment Design</h3>
-        <p>Immersive 3D game worlds with Lumen lighting, Nanite geometry, and stunning Niagara VFX — just like the environments I built.</p>
-      </div>
-      <div class="service-card" id="srv-ui">
-        <div class="service-icon">🖥️</div>
-        <h3>UI / HUD Systems</h3>
-        <p>Clean, game-feel UIs — health bars, ammo counters, pause menus, inventory screens, and interactive widget systems with UMG.</p>
-      </div>
-      <div class="service-card" id="srv-opt">
-        <div class="service-icon">⚡</div>
-        <h3>Performance Optimization</h3>
-        <p>Asset optimization, LODs, blueprint optimization, profiling — ensuring your game runs smooth across target platforms.</p>
-      </div>
-      <div class="service-card" id="srv-consult">
-        <div class="service-icon">🎓</div>
-        <h3>Game Dev Consulting</h3>
-        <p>Guidance on Unreal Engine architecture, gameplay design patterns, project structure, and best practices from real project experience.</p>
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="contact-card">
+      <h2>LET'S BUILD WORLDS</h2>
+
+      <p>
+        Interested in collaborating, hiring, or discussing game development projects?
+        Let's create something unforgettable.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:imran.brin@gmail.com">Email</a>
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
       </div>
     </div>
+
   </section>
 
-  <!-- ===== MEDIA SECTION ===== -->
-  <section id="media">
-    <div class="section-header">
-      <span class="section-tag">// CONTENT & SOCIALS</span>
-      <h2>Media &amp; Links</h2>
-      <p>My LinkedIn video post, YouTube channel &amp; Instagram</p>
-    </div>
-    <div class="media-grid-full">
-
-      <!-- ===== LINKEDIN VIDEO POST EMBED ===== -->
-      <div class="media-card linkedin-video-card" id="media-li-video">
-        <div class="media-card-header">
-          <svg class="media-logo linkedin-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          <span>LinkedIn Post – Unreal Engine Game</span>
-          <a href="https://www.linkedin.com/posts/sanjay-kumar070_unreal-game-ugcPost-7450823704936321024-06Qf/" target="_blank" class="li-open-btn" id="li-open-post">Open on LinkedIn ↗</a>
-        </div>
-        <div class="linkedin-video-wrap">
-          <iframe
-            id="linkedin-video-iframe"
-            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450823704936321024"
-            allowfullscreen
-            title="Sanjay Kumar SM – Unreal Engine Game Post on LinkedIn"
-            frameborder="0"
-            scrolling="no"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
-        </div>
-      </div>
-
-      <!-- Bottom row: LinkedIn Profile + YouTube + Instagram -->
-      <div class="media-grid-row">
-
-        <!-- LinkedIn Profile -->
-        <div class="media-card linkedin-card" id="media-linkedin">
-          <div class="media-card-header">
-            <svg class="media-logo linkedin-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            <span>LinkedIn Profile</span>
-          </div>
-          <div class="linkedin-profile-box">
-            <div class="li-avatar">
-              <img src="images/sanjay_profile.jpg" alt="Sanjay Kumar SM LinkedIn" />
-            </div>
-            <div class="li-info">
-              <h4>Sanjay Kumar SM</h4>
-              <p>Game Developer · Unreal Engine 5/6 · C++</p>
-              <p class="li-location">📍 Ernakulam, Kerala, India</p>
-            </div>
-            <a href="https://www.linkedin.com/in/sanjay-kumar070/" target="_blank" class="btn-linkedin" id="linkedin-visit-btn">Visit Profile →</a>
-          </div>
-          <div class="li-highlights">
-            <div class="li-highlight-item"><span>🎮</span><p>Game Development Intern at Malger Entertainments</p></div>
-            <div class="li-highlight-item"><span>⚙️</span><p>C++ · Blueprints · UE5/6 · AI Systems</p></div>
-            <div class="li-highlight-item"><span>🏆</span><p>7+ Years Gaming Experience</p></div>
-          </div>
-        </div>
-
-        <!-- YouTube -->
-        <div class="media-card youtube-card" id="media-youtube">
-          <div class="media-card-header">
-            <svg class="media-logo youtube-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>YouTube Channel</span>
-          </div>
-          <div class="yt-channel-info">
-            <div class="yt-channel-banner">
-              <div class="yt-banner-avatar">
-                <img src="images/gaming_avatar.jpg" alt="EdGaR GAMING Avatar" />
-              </div>
-              <div class="yt-banner-text">EdGaR GAMING</div>
-            </div>
-            <div class="yt-channel-meta">
-              <div class="yt-channel-icon">
-                <img src="images/gaming_avatar.jpg" alt="EdGaR GAMING Channel" />
-              </div>
-              <div>
-                <h4>@EdGaRGAMING-007</h4>
-                <p>Game Streaming · Gameplay · Reviews</p>
-              </div>
-            </div>
-            <p class="yt-desc">Passionate game streamer sharing gameplay, reviews, and gaming content. 7+ years of gaming experience fueling every video!</p>
-            <a href="https://www.youtube.com/@EdGaRGAMING-007" target="_blank" class="btn-youtube" id="youtube-visit-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              Visit Channel
-            </a>
-          </div>
-        </div>
-
-        <!-- Instagram -->
-        <div class="media-card instagram-card" id="media-instagram">
-          <div class="media-card-header">
-            <svg class="media-logo instagram-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            <span>Instagram</span>
-          </div>
-          <div class="ig-profile-box">
-            <div class="ig-photo-grid">
-              <div class="ig-main-photo">
-                <img src="images/sanjay_photo2.jpg" alt="Sanjay Kumar SM" />
-              </div>
-              <div class="ig-side-photos">
-                <img src="images/sanjay_profile.jpg" alt="Sanjay profile" />
-                <div class="ig-more-overlay">
-                  <a href="https://www.instagram.com/_____sa_nj_ay_____/" target="_blank">+ More</a>
-                </div>
-              </div>
-            </div>
-            <div class="ig-avatar-row">
-              <div class="ig-avatar-ring">
-                <img src="images/sanjay_profile.jpg" alt="Sanjay Instagram" />
-              </div>
-              <div class="ig-info">
-                <h4>@_____sa_nj_ay_____</h4>
-                <p>Game Developer · Streamer · Creator</p>
-              </div>
-            </div>
-            <a href="https://www.instagram.com/_____sa_nj_ay_____/" target="_blank" class="btn-instagram" id="instagram-visit-btn">
-              Follow on Instagram
-            </a>
-          </div>
-        </div>
-
-      </div><!-- end media-grid-row -->
-    </div><!-- end media-grid-full -->
-  </section>
-
-  <!-- ===== CONTACT SECTION ===== -->
-  <section id="contact">
-    <div class="section-header">
-      <span class="section-tag">// LET'S CONNECT</span>
-      <h2>Contact Me</h2>
-      <p>Open to game dev opportunities, collaborations, and freelance projects</p>
-    </div>
-    <div class="contact-wrap">
-      <div class="contact-info">
-        <div class="contact-profile-banner">
-          <img src="images/sanjay_photo2.jpg" alt="Sanjay Kumar SM" class="contact-banner-img" />
-          <div class="contact-profile-info">
-            <img src="images/sanjay_profile.jpg" alt="Sanjay Kumar SM" class="contact-profile-pic" />
-            <div>
-              <h3>Sanjay Kumar SM</h3>
-              <p>Game Developer · UE5/6 · C++</p>
-            </div>
-          </div>
-        </div>
-        <p class="contact-intro">I'm actively looking for game development opportunities. Whether you need a skilled Unreal Engine developer, want to collaborate on a project, or just want to talk games — let's connect!</p>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/sanjay-kumar070/" target="_blank" class="contact-link-item" id="contact-linkedin">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            <span>linkedin.com/in/sanjay-kumar070</span>
-          </a>
-          <a href="https://www.youtube.com/@EdGaRGAMING-007" target="_blank" class="contact-link-item" id="contact-youtube">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>@EdGaRGAMING-007</span>
-          </a>
-          <a href="https://www.instagram.com/_____sa_nj_ay_____/" target="_blank" class="contact-link-item" id="contact-instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            <span>@_____sa_nj_ay_____</span>
-          </a>
-        </div>
-        <div class="contact-resume-box">
-          <h4>📄 Download My Resume</h4>
-          <p>Get the full details of my experience and skills</p>
-          <a href="file:///C:/Users/ssanj/Downloads/sanjay%20unreal%20resume.pdf.pdf" target="_blank" class="btn-primary" id="contact-resume-btn">Download Resume PDF</a>
-        </div>
-        <div class="availability-badge">
-          <span class="avail-dot"></span>
-          Available for Internships &amp; Entry-Level Positions
-        </div>
-        <div class="languages-box">
-          <h4>🌐 Languages</h4>
-          <div class="lang-badges">
-            <span>🇮🇳 Malayalam</span>
-            <span>🇬🇧 English</span>
-            <span>🇮🇳 Tamil</span>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
-        <h3>Send a Message</h3>
-        <div class="form-group">
-          <label for="contact-name">Your Name</label>
-          <input type="text" id="contact-name" name="name" placeholder="John Doe" required />
-        </div>
-        <div class="form-group">
-          <label for="contact-email">Email Address</label>
-          <input type="email" id="contact-email" name="email" placeholder="you@example.com" required />
-        </div>
-        <div class="form-group">
-          <label for="contact-subject">Subject</label>
-          <input type="text" id="contact-subject" name="subject" placeholder="Game Dev Collaboration / Job Opportunity" />
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
-        </div>
-        <button type="submit" class="btn-primary full-width" id="contact-submit">Send Message 🚀</button>
-        <div id="form-success" class="form-success" style="display:none;">
-          ✅ Message sent! I'll get back to you soon.
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer id="footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <span class="logo-bracket">&lt;</span>SK<span class="logo-bracket">/&gt;</span>
-        <span class="footer-name">Sanjay Kumar SM</span>
-      </div>
-      <p class="footer-tagline">Game Developer · Unreal Engine 5/6 · C++ · AI Systems</p>
-      <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/sanjay-kumar070/" target="_blank" aria-label="LinkedIn" id="footer-linkedin">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@EdGaRGAMING-007" target="_blank" aria-label="YouTube" id="footer-youtube">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/_____sa_nj_ay_____/" target="_blank" aria-label="Instagram" id="footer-instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-      </div>
-      <p class="footer-copy">© 2026 Sanjay Kumar SM. All rights reserved. · Made with ❤️ &amp; Unreal Engine passion.</p>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    DREAMING IN 60 FPS • IMRAN 2026
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll('.project-card').forEach((card) => {
+      observer.observe(card);
+    });
+
+
+    // Smooth Navbar Background on Scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(0,0,0,0.75)';
+      } else {
+        nav.style.background = 'rgba(0,0,0,0.35)';
+      }
+    });
+
+  </script>
+
 </body>
 </html>
